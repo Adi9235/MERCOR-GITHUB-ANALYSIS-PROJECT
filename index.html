@@ -1,5 +1,10 @@
-<!-- public/index.html -->
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complexity Checker</title>
+</head>
 <body>
 
 <h1>Complexity Checker</h1>
@@ -15,7 +20,8 @@
 async function checkComplexity() {
     const username = document.getElementById('username').value;
 
-    const result = await fetch('/.netlify/functions/get-complex-repo?username=' + username)
+    // Use the relative path to your API endpoint on GitHub Pages
+    const result = await fetch('/api/get-complex-repo?username=' + username)
     .then(res => res.json());
 
     document.getElementById('result').innerText = result.body;
