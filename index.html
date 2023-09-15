@@ -1,0 +1,26 @@
+<!-- public/index.html -->
+<html>
+<body>
+
+<h1>Complexity Checker</h1>
+
+<form>
+    <input type="text" id="username" />
+    <button type="button" onclick="checkComplexity()">Check</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+async function checkComplexity() {
+    const username = document.getElementById('username').value;
+
+    const result = await fetch('/.netlify/functions/get-complex-repo?username=' + username)
+    .then(res => res.json());
+
+    document.getElementById('result').innerText = result.body;
+}
+</script>
+
+</body>
+</html>
